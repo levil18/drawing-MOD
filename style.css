@@ -1,0 +1,67 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+    background-color: #d1cfd4;
+    /*background: url(https://levil.com.br/images/back_draw_OR.jpeg) no-repeat center center;
+      background-size: cover;*/
+}
+#template, #sombras {
+     position: absolute;
+    top: 0;
+    left: 0;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+
+}
+#template {
+  background: url(https://levil.com.br/images/back_draw2.png) no-repeat center center;
+      background-size: cover;
+}
+#sombras {
+  background: url(https://levil.com.br/images/back_draw_shadow.png) no-repeat center center;
+  background-size: cover;
+    mix-blend-mode: multiply;
+}
+svg {
+  max-width: 60vw;
+  max-height: 60vh;
+  display: block;
+  position: relative;
+  left: 12%;
+  top: 15%;
+}
+#drawing path {
+  fill-opacity: 0;
+  stroke: #111;
+  fill: #383535;
+  stroke-width: 2px;
+  animation: brush var(--duration) ease-in var(--delay) 1 forwards;
+  /* animation-duration: var(--duration); */
+  /* animation-timing-function: ease-in; */
+  /* animation-iteration-count: 1; */
+  /* animation-fill-mode: forwards; */
+  stroke-dasharray: var(--length) var(--length);
+  stroke-dashoffset: var(--length);
+  /* animation-name: brush; */
+  /* animation-delay: var(--delay); */
+}
+@keyframes brush {
+  0% {
+    stroke: #111;
+    stroke-dashoffset: var(--length);
+  }
+  60% {
+    fill-opacity: 0;
+  }
+  70% {
+    fill-opacity: var(--opacity);
+    stroke: #383535;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: var(--opacity);
+    stroke: #383535;
+  }
+}
